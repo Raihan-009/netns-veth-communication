@@ -141,7 +141,7 @@ and
    sudo ip netns exec blue-namespace ip route add default via 192.168.0.1 dev veth-blue
    sudo ip netns exec lemon-namespace ip route add default via 192.168.0.2 dev veth-lemon
    ```
-   These commands set the `default routes` within each namespace, allowing them to route network traffic.
+   These commands set the **default routes** within each namespace, allowing them to route network traffic.
 
 In order to verify run `sudo ip netns exec blue-namespace ip route` and `sudo ip netns exec lemon-namespace ip route`
 
@@ -155,16 +155,25 @@ and
 default via 192.168.0.2 dev veth-lemon 
 192.168.0.0/24 dev veth-lemon proto kernel scope link src 192.168.0.2
 ```
+### In addition, the `route` command in the context of the `ip netns exec` allows you to view the routing table of a specific network namespace. The routing table contains information about how network traffic should be forwarded or delivered.
 
-Or we can see by running `sudo ip netns exec lemon-namespace route`
-**Output**
+To view the routing table of the lemon-namespace, you can execute the following command:
+
+```shell
+sudo ip netns exec lemon-namespace route
+```
+***Output***
 ```bash
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         192.168.0.2     0.0.0.0         UG    0      0        0 veth-lemon
 192.168.0.0     0.0.0.0         255.255.255.0   U     0      0        0 veth-lemon
 ```
-and `sudo ip netns exec blue-namespace route`
+To view the routing table of the blue-namespace, you can execute the following command:
+
+```shell
+sudo ip netns exec blue-namespace route
+```
 **Output**
 ```bash
 Kernel IP routing table
@@ -210,7 +219,7 @@ PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.033/0.064/0.074/0.015 ms
 ```
 
-### In addition, the `arp` command in the context of the `ip netns exec` allows you to view the ARP cache of a specific network namespace. The ARP cache contains mappings of IP addresses to MAC addresses.
+### Furthermore, the `arp` command in the context of the `ip netns exec` allows you to view the ARP cache of a specific network namespace. The ARP cache contains mappings of IP addresses to MAC addresses.
 
 To view the ARP cache of the blue-namespace, you can execute the following command:
 
