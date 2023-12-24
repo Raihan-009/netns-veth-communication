@@ -27,7 +27,7 @@ This guide outlines the steps to create two namespaces named ***blue-namespace**
 
 ## 2. Create namespaces:
 
-![Namespaces](https://github.com/Raihan-009/Linux-Network-Namespaces/blob/dev/block-diagrams/namespaces.jpg)
+![Namespaces](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
 
    ```shell
    sudo ip netns add blue-namespace
@@ -37,7 +37,7 @@ This guide outlines the steps to create two namespaces named ***blue-namespace**
 
 ## 3. Create the virtual Ethernet link pair:
 
-![Namespaces](https://github.com/Raihan-009/Linux-Network-Namespaces/blob/dev/block-diagrams/veth-cable.jpg)
+![Veth Cable](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
 
    ```shell
    sudo ip link add veth-blue type veth peer name veth-lemon
@@ -57,7 +57,7 @@ In order to verify, run `sudo ip link list`
 
 ## 4. Set the cable as NIC
 
-![Namespaces](https://github.com/Raihan-009/Linux-Network-Namespaces/blob/dev/block-diagrams/nic.jpg)
+![Nic](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
 
    ```shell
    sudo ip link set veth-blue netns blue-namespace
@@ -87,7 +87,7 @@ But as we see, interface has been created but it's **DOWN** and has no ip. Now a
 
 ## 5. Assign IP Addresses to the Interfaces
 
-![Namespaces](https://github.com/Raihan-009/Linux-Network-Namespaces/blob/dev/block-diagrams/assigned-ip.jpg)
+![Ip](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
 
    ```shell
    sudo ip netns exec blue-namespace ip addr add 192.168.0.1/24 dev veth-blue
@@ -114,7 +114,7 @@ and
 
 ## 6. Set the Interfaces Up
 
-![Namespaces](https://github.com/Raihan-009/Linux-Network-Namespaces/blob/dev/block-diagrams/up-state.jpg)
+![Interface](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
 
    ```shell
    sudo ip netns exec blue-namespace ip link set veth-blue up
