@@ -27,7 +27,7 @@ This guide outlines the steps to create two namespaces named ***blue-namespace**
 
 ## 2. Create namespaces:
 
-![Namespaces](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
+![Namespaces](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/19b3e3df-0f1b-4a9b-a0d9-80e61b766a6e.png)
 
    ```shell
    sudo ip netns add blue-namespace
@@ -37,7 +37,7 @@ This guide outlines the steps to create two namespaces named ***blue-namespace**
 
 ## 3. Create the virtual Ethernet link pair:
 
-![Veth Cable](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
+![Veth Cable](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/f3053bd2-ed2a-4ccb-b5ee-9d730d23e409.png)
 
    ```shell
    sudo ip link add veth-blue type veth peer name veth-lemon
@@ -57,7 +57,7 @@ In order to verify, run `sudo ip link list`
 
 ## 4. Set the cable as NIC
 
-![Nic](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
+![Nic](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/2896cbaa-3d58-4079-9e8f-7a80451713c7.png)
 
    ```shell
    sudo ip link set veth-blue netns blue-namespace
@@ -87,7 +87,7 @@ But as we see, interface has been created but it's **DOWN** and has no ip. Now a
 
 ## 5. Assign IP Addresses to the Interfaces
 
-![Ip](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
+![Ip](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/dd04edc1-9c80-46ac-a2cf-ba60086944aa.png)
 
    ```shell
    sudo ip netns exec blue-namespace ip addr add 192.168.0.1/24 dev veth-blue
@@ -114,7 +114,7 @@ and
 
 ## 6. Set the Interfaces Up
 
-![Interface](https://blog-bucket.s3.brilliant.com.bd/thumbnail/invalid%20image%20type)
+![Interface](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/dea5d936-bc84-491b-9268-323be3a8ba32.png)
 
    ```shell
    sudo ip netns exec blue-namespace ip link set veth-blue up
